@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    ios_base:: sync_with_stdio(false);
+    // cin.tie(NULL);
+    // freopen("output.txt", "w", stdout);
+    int tst, TC;
+    cin>>TC;
+    for(tst=1; tst<=TC; tst++){
+        string m1,m2;
+        char a;
+        long d1, d2, y1, y2;
+        cin>>m1>>d1>>a>>y1;
+        cin>>m2>>d2>>a>>y2;
+
+        if(m1!="January" && m1!="February") y1++;
+        if((m2=="February" && d2!=29) || m2=="January") y2--;
+        long year;
+        y1--;
+        year = y2/4-(y1)/4;
+        long end_cent = (y2/100);
+        long start_cent = (y1/100);
+        year -= (end_cent-start_cent);
+        year += end_cent/4-(start_cent)/4;
+        
+        cout<<"Case "<<tst<<": "<<year<<'\n';
+    }
+return 0;
+}
