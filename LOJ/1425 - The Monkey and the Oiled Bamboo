@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+
+#define LL long long
+#define L long
+
+using namespace std;
+
+int main(){
+    ios_base::sync_with_stdio(false);
+    
+    int TC, tst;
+    cin>>TC;
+    for(tst = 1; tst<=TC; tst++){
+        L n, k_max=0, k;
+        cin>>n;
+        vector<LL> rung(n+1);
+        rung[0]=0;
+        for(L i=1; i<=n; i++){
+            cin>>rung[i];
+            k = rung[i]-rung[i-1];
+            if(k_max<k) k_max = k;
+            else if(k==k_max) k_max++;
+        }
+           cout<<"Case "<<tst<<": "<<k_max<<'\n';
+    }
+    return 0;
+}
