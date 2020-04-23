@@ -1,0 +1,50 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main(){
+    // freopen("in.txt", "r", stdin);
+    // freopen("out.txt", "w", stdout);
+    int TC, tst;
+    cin>>TC;
+    for(tst=1; tst<=TC; tst++){
+        long n, m;
+        cin>>n>>m;
+        vector<long>vessel(n);
+        long high=0, low=0;
+        for(int i=0; i<n; i++){
+            cin>>vessel[i];
+            if(vessel[i]>low) low = vessel[i];
+            high += vessel[i];
+        }
+        bool usable;
+        long mid = (high+low)/2;
+        
+        while(high>=low){
+            long sum = 0, num_of_cont=m-1;
+            for(int i=0; i<n; i++){
+                if(sum+vessel[i]>mid){
+                    sum=0;
+                    num_of_cont--;
+                    sum += vessel[i];
+                }
+                else sum+= vessel[i];
+                if(num_of_cont<0){
+                    usable = false;
+                    break;
+                }
+            }
+            if(num_of_cont>=0) usable = true;
+        
+	        if(usable){
+	            high = mid- 1;
+	            mid = (low+high)/2;
+	        }
+	        else{
+	            low = mid + 1;
+	            mid = (low+high)/2;
+	        }
+        }
+        cout<<"Case "<<tst<<": "<<low<<'\n'; 
+    }
+    return 0;
+}
