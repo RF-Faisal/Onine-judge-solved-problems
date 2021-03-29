@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+const int MX = 1e8+6;
+
+vector<int> vec5;
+int func(int n){
+    int var, ans = 0;
+    while(n){
+        ans += n/5;
+        n /= 5;
+    }
+    return ans;
+}
+signed main(){
+    ios_base::sync_with_stdio(false); cin.tie(NULL);
+    // freopen("in", "r", stdin);
+    // freopen("out", "w", stdout);
+    int tc; cin>>tc;
+    for(int cn=1; cn<=tc; ++cn){
+        int n; cin>>n;
+
+        int hi = 5*n, lo = 1, mid, ans = 0, var;
+        while(lo < hi){
+            mid = lo + (hi - lo)/2;
+            var = func(mid);
+            
+            if(var == n){ ans = mid; break;}
+            else if(var >= n) hi = mid -1;
+            else lo = mid + 1;
+            // cout<<lo<<' ';
+        }
+        ans = (ans > 0? ans : lo);  
+        ans /= 5; ans *= 5;
+
+        bool hobe = (n == func(ans));
+        if(hobe) cout<<"Case "<<cn<<": "<<ans<<'\n';
+        else cout<<"Case "<<cn<<": impossible\n";
+    }
+}
