@@ -1,3 +1,5 @@
+//https://www.spoj.com/problems/DQUERY/
+
 #include<bits/stdc++.h>
 using namespace std;
 const int SIZE_1 = 1e6+10, SIZE_2 = 3e4+10;
