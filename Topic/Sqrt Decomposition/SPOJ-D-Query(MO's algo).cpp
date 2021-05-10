@@ -46,7 +46,7 @@ signed main(){
         Qur[i].indx = i;
     }
 
-    block_size = sqrt(q);
+    block_size = sqrt(n); //sqrt(q) dileo hobe, but n is more accurate 
     sort(Qur, Qur+q, comp);
 
     int ML = 0, MR = -1;
