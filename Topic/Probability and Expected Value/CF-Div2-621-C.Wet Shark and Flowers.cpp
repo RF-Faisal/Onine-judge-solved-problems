@@ -1,3 +1,6 @@
+//EXPECTED VALUE
+//link: https://codeforces.com/contest/621/problem/C 
+
 #include <bits/stdc++.h>
 using namespace std;
  
